@@ -1,44 +1,36 @@
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menuToggle');
-    const closeContentBtn = document.getElementById('closeContent');
-    const menuLinks = document.querySelectorAll('.menu-panel nav a');
+  const menuToggle   = document.getElementById('menuToggle');
+  const closeContent = document.getElementById('closeContent');
+  const menuLinks    = document.querySelectorAll('#menuPanel a');
+  const pages        = document.querySelectorAll('.content-page');
 
-    // Menu Toggle Functionality
-    const toggleMenu = () => {
-        document.body.classList.toggle('menu-open');
-    };
-    menuToggle.addEventListener('click', toggleMenu);
+  // 1) Toggle sidebar
+  menuToggle.addEventListener('click', () => {
+    document.body.classList.toggle('menu-open');
+  });
 
-    // Content Overlay Functionality
-    const showContentOverlay = (targetId) => {
-        document.querySelectorAll('.content-page').forEach(page => {
-            page.style.display = 'none';
-        });
-        const targetPage = document.querySelector(targetId);
-        if (targetPage) {
-            targetPage.style.display = 'block';
-        }
-        document.body.classList.add('overlay-is-open');
-    };
+  // 2) Open overlay & page
+  menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
 
-    const hideContentOverlay = () => {
-        document.body.classList.remove('overlay-is-open');
-    };
+      // close menu
+      document.body.classList.remove('menu-open');
 
-    // Connecting Menu Links to the Overlay
-    menuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetContentId = link.getAttribute('href');
-            if (document.body.classList.contains('menu-open')) {
-                toggleMenu();
-            }
-            setTimeout(() => {
-                showContentOverlay(targetContentId);
-            }, 500);
-        });
+      // show target page
+      const target = document.querySelector(link.getAttribute('href'));
+      pages.forEach(p => p.classList.remove('active'));
+      if (target) target.classList.add('active');
+
+      // show overlay
+      document.body.classList.add('overlay-is-open');
     });
+  });
 
-    // Close button listener
-    closeContentBtn.addEventListener('click', hideContentOverlay);
+  // 3) Close overlay
+  closeContent.addEventListener('click', () => {
+    document.body.classList.remove('overlay-is-open');
+    pages.forEach(p => p.classList.remove('active'));
+  });
 });
