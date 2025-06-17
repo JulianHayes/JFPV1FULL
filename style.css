@@ -60,7 +60,7 @@ body.overlay-is-open .content-overlay { opacity: 1; pointer-events: auto; }
 
 /* --- CONTENT STYLES --- */
 .content-page h2 { margin-bottom: 3rem; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 2px solid var(--brand-fg); padding-bottom: 1rem; }
-.content-page > p { max-width: 800px; font-size: 1.2rem; line-height: 1.6; }
+.content-page > p { max-width: 600px; font-size: 1.2rem; line-height: 1.6; }
 
 .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem 2rem; }
 .case-study img { max-width: 100%; margin-bottom: 1rem; }
