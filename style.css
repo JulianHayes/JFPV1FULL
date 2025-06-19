@@ -1,4 +1,3 @@
-/* style.css */
 :root {
   --brand-bg: #FFFFFF;
   --brand-fg: #1a1a1a;
@@ -17,12 +16,7 @@ body {
   padding: 0;
   display: flex;
 }
-
-a, a:visited {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+a, a:visited { color: inherit; text-decoration: none; transition: color 0.2s ease; }
 a:hover { color: #888; }
 
 .left-sidebar {
@@ -36,7 +30,6 @@ a:hover { color: #888; }
   align-items: center;
   justify-content: center;
 }
-
 .main-content {
   flex-grow: 1;
   width: calc(100% - var(--sidebar-width));
@@ -53,7 +46,6 @@ a:hover { color: #888; }
   right: 2.5rem;
   z-index: 100;
 }
-
 .header-left {
   font-size: 0.8rem;
   font-weight: 600;
@@ -103,7 +95,6 @@ a:hover { color: #888; }
   color: var(--brand-bg);
   transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
 }
-
 .menu-panel {
   position: fixed;
   top: 0;
@@ -188,4 +179,4 @@ body.overlay-is-open .content-overlay {
   pointer-events: auto;
 }
 
-/* rest of your content styles… */
+/* footer, form, grid, etc. styles unchanged from previous */
